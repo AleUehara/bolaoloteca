@@ -18,7 +18,19 @@ class Concurso(models.Model):
 	def __unicode__(self):
 		return str(self.numero)
 
+class Jogo(models.Model):
+	numero = models.IntegerField()
+	coluna1 = models.CharField(max_length=100)
+	coluna2 = models.CharField(max_length=100)
+	concurso = models.ForeignKey(Concurso)
 
+class JogoDoParticipante(Jogo):
+	palpitedoparticipante = models.ForeignKey(PalpiteDoParticipante)
+	palpite = models.IntegerField()
+	def __unicode__(self):
+		return str(self.numero)
+
+'''
 class Jogo(models.Model):
 	numero = models.IntegerField()
 	coluna1 = models.CharField(max_length=100)
@@ -26,8 +38,8 @@ class Jogo(models.Model):
 	concurso = models.ForeignKey(Concurso)
 	palpitedoparticipante = models.ForeignKey(PalpiteDoParticipante)
 	palpite = models.IntegerField()
-
-
 	def __unicode__(self):
 		return str(self.numero)
+'''
+
 

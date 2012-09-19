@@ -1,12 +1,18 @@
 from django.contrib import admin
+from django import forms
 from palpite.models import PalpiteDoParticipante
-from cadastro.admin import JogoInline
+from cadastro.models import JogoDoParticipante
+
+class JogoDoParticipanteInline(admin.TabularInline):
+    model = JogoDoParticipante
+    readonly_fields = ('numero', 'coluna1', 'coluna2', 'concurso')
 
 
 class PalpiteDoParticipanteAdmin(admin.ModelAdmin):
     inlines = [
-        JogoInline,
+        JogoDoParticipanteInline,
     ]
+
 
 admin.site.register(PalpiteDoParticipante, PalpiteDoParticipanteAdmin)
 

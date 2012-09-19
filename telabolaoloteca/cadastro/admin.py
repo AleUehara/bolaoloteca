@@ -9,6 +9,8 @@ class ConcursoAdmin(admin.ModelAdmin):
         JogoInline,
     ]
 
+
+
 #admin.site.unregister(Rodada)
 admin.site.register(Rodada)
 admin.site.register(Concurso, ConcursoAdmin)
